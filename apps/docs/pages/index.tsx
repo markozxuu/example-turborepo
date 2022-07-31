@@ -4,7 +4,7 @@ export default function Docs() {
   return (
     <div>
       <h1>Docs!! :D</h1>
-      <Button />
+      <Button title="Test click" />
     </div>
   );
 }
