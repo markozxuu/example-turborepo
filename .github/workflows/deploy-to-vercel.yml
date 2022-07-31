@@ -1,13 +1,7 @@
 ---
 name: 'Deploy to Vercel'
 
-on:
- push:
-   branches: ["push"]
-   paths:
-     - 'apps/web'
-     - 'apps/docs'
-     - 'packages/ui'
+on: [push]
 jobs:
   deploy-docs:
     name: Deploy ▲Vercel
