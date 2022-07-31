@@ -30,6 +30,6 @@ jobs:
         with:
             vercel-token: ${{ secrets.VERCEL_TOKEN }}
             github-token: ${{ secrets.TOKEN_GITHUB }}
-            vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-            vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+            vercel-org-id: ${{ secrets.VERCEL_ORG_ID_WEB }}
+            vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_WEB }}
             github-comment: true
