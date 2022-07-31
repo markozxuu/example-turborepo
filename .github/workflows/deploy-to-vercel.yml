@@ -3,7 +3,7 @@ name: 'Deploy to Vercel'
 
 on:
  push:
-   branches: ["main"]
+   branches: ["push"]
    paths:
      - 'apps/web'
      - 'apps/docs'
@@ -12,9 +12,6 @@ jobs:
   deploy-docs:
     name: Deploy ▲Vercel
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./apps/docs
     steps:
       - uses: actions/checkout@v2
       - uses: amondnet/vercel-action@v20
