@@ -1,16 +1,10 @@
 ---
 name: 'Deploy to Vercel'
 
-on:
- push:
-   branches: ["main"]
-   paths:
-     - 'apps/web'
-     - 'apps/docs'
-     - 'packages/ui'
+on: [push]
 jobs:
   deploy-docs:
-    name: Deploy ▲Vercel
+    name: Deploy docs
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,4 +17,19 @@ jobs:
             github-token: ${{ secrets.TOKEN_GITHUB }}
             vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
             vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+            github-comment: true
+  deploy-web:
+    name: Deploy web
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./apps/web
+    steps:
+      - uses: actions/checkout@v2
+      - uses: amondnet/vercel-action@v20
+        with:
+            vercel-token: ${{ secrets.VERCEL_TOKEN }}
+            github-token: ${{ secrets.TOKEN_GITHUB }}
+            vercel-org-id: ${{ secrets.VERCEL_ORG_ID_WEB }}
+            vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_WEB }}
             github-comment: true
